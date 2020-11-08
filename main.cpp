@@ -48,13 +48,14 @@ void Lklist_Test()
 	int ii = 0;
 
 	InitList_Lk(L);//初始化一个空链表（只有头结点）
-
+	printf("ListEmpty_Lk(L):%d\n",ListEmpty_Lk(L));
 	//测试头插法和尾插法函数
 	//CreateList_LkHead(L, N);//头插法创建一个L，长度为N
 	CreateList_LkEnd(L, N);//尾插法创建一个L，长度为N
 	printf("L has been created, DisplList_Lk(L):");
 	DisplList_Lk(L);
-
+	printf("\nListEmpty_Lk(L):%d\n", ListEmpty_Lk(L));
+	printf("ListLength_Lk(L):%d\n", ListLength_Lk(L));
 	//测试nGetElem_Lk函数
 	for (i = 1; i <= N; i++)
 	{
@@ -72,6 +73,9 @@ void Lklist_Test()
 		printf("\n'%d' in %d\n", e, ii);
 		DisplList_Lk(L);
 	}
+	printf("\n\nListLength_Lk(L):%d\n", ListLength_Lk(L));
+
+	printf("LocateElem_Lk(L, 12):%d\n", LocateElem_Lk(L, 69));
 	//测试ListDelet_Lk函数
 	printf("\nDelet:");
 	for (i = 1; i <= 5; i++)//完成5次在任意位置删除任意数据
