@@ -5,6 +5,9 @@ status GetElem_Lk(LinkList L,int i,ElemType_Lk &e)
 {
 	LinkList p; //结构体指针
 	int j = 0;//i为计数器
+	
+	if (!L)return ERROR;
+	
 	p = L; //p指向头结点
 	while (p && j<i)
 	{
@@ -22,6 +25,9 @@ status ListInsert_Lk(LinkList &L, int i, ElemType_Lk &e)//带头结点的链表的前插
 	LinkList p; //结构体指针，用来遍历链表
 	LinkList q; //新建一个结构体指针，用来插入链表
 	int j = 0;//i为计数器，头节点为0
+	
+	if (!L)return ERROR;
+
 	p = L; //p指向头结点,
 	while (p && j < i-1)//因为要在前面插，所以要减1
 	{
@@ -48,6 +54,9 @@ status ListDelet_Lk(LinkList& L, int i,ElemType_Lk &e)//带头结点的链表的删除，删
 	LinkList p; //节点指针，用来遍历链表
 	LinkList q; //临时存放删除的节点去
 	int j = 0;//i为计数器
+
+	if (!L)return ERROR;
+
 	p = L; //p指向第一个节点
 	while (p && j < i-1)//删除第i个节点，需要将第i-1个节点的指针指向第i+1个节点
 	{
@@ -70,10 +79,12 @@ status CreateList_LkHead(LinkList& L,int n)//头插法
 	LinkList q; //自由节点，用来放插入节点
 	int i;
 
-	L = (LinkList)malloc(sizeof(LNode)); //创建一个头结点
-	if (!L)exit(ERROR);
-	L->next = NULL;//先建立一个头结点并指向NULL
-
+	if (!L)//如果链表没有初始化就先初始化
+	{
+		L = (LinkList)malloc(sizeof(LNode)); //创建一个头结点
+		if (!L)exit(ERROR);
+			L->next = NULL;//先建立一个头结点并指向NULL
+	}
 	//printf("please in put %d inttype data\n", n);
 	for (i = n; i > 0; i--)//头插法是逆序的
 	{
@@ -94,10 +105,13 @@ status CreateList_LkEnd(LinkList& L, int n)//尾插法
 	LinkList q; //自由节点，用来放插入节点
 	LinkList p; //自由节点，用来遍历链表，指向当前节点
 	int i;
-	
-	L = (LinkList)malloc(sizeof(LNode));
-	if (!L)exit(ERROR);
-	L->next = NULL;
+
+	if (!L)//如果链表没有初始化就先初始化
+	{
+		L = (LinkList)malloc(sizeof(LNode));
+		if (!L)exit(ERROR);
+			L->next = NULL;
+	}
 
 	p = L;//p指向当前节点
 	//printf("please in put %d ElemType_Lk data\n", n);
@@ -117,7 +131,9 @@ status CreateList_LkEnd(LinkList& L, int n)//尾插法
 status DisplList_Lk(LinkList& L)//遍历带头节点的链表
 {
 	LinkList p;
-	if (!L)return ERROR;
+	
+	if (!L) return ERROR;//如果是未初始化的链表就返回一个错误
+	
 	p = L;
 	p = p->next;//第一次绕过头指针
 	while (p)
@@ -133,6 +149,8 @@ status DestoryList_Lk(LinkList& L)  //销毁一个单链表
 {
 	LinkList p;
 	LinkList q; //两个节点，一个自由节点指向当前节点，一个自由节点被销毁
+
+	if (!L)return ERROR;
 
 	p = L->next;
 	while (p)
@@ -150,8 +168,54 @@ status InitList_Lk(LinkList& L)//初始化链表(申请一个头结点)
 {
 	L = (LinkList)malloc(sizeof(LNode));
 	if (!L)exit(ERROR);
-	L->next = NULL;
+		L->next = NULL;
 	return OK;
 }
+
+
+bool ListEmpty_Lk(LinkList& L)
+{
+	if (!L)return ERROR;
+	
+	return (L->next == NULL);
+}
+
+int ListLength_Lk(LinkList& L)
+{
+	int n = 0;
+	LinkList p;
+
+	if (!L)return ERROR;
+
+	p = L->next;
+	while (p)
+	{
+		n++;
+		p = p->next;
+	}
+	return n;
+}
+
+int LocateElem_Lk(LinkList& L, ElemType_Lk e)//查找元素，没找到就返回0
+{
+	LinkList p;
+	int i = 0;
+	
+	if (!L)return ERROR;
+
+	p = L->next;//指向第一个节点
+
+	while (p)
+	{
+		i++;
+		if(p->data == e)return i;
+		p = p->next;
+	}
+	return 0;//没找到就返回0
+}
+
+
+
+
 
 

@@ -25,6 +25,10 @@ status CreateList_LkHead(LinkList& L, int n);//头插法
 status CreateList_LkEnd(LinkList& L, int n);//尾巴插法
 status DisplList_Lk(LinkList& L);
 status DestoryList_Lk(LinkList& L);
-status InitList_Lk(LinkList& L);
+status InitList_Lk(LinkList& L);//初始化链表(申请一个头结点)
+bool ListEmpty_Lk(LinkList& L);
+int ListLength_Lk(LinkList& L);
+int LocateElem_Lk(LinkList& L, ElemType_Lk e);//查找元素，没找到就返回0
+
 
 #endif
