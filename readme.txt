@@ -5,3 +5,4 @@ ConsoleApplication4   单链表的递归算法
 ConsoleApplication5   递归算法求解迷宫问题（带动画显示）
 ConsoleApplication6   稀疏矩阵相关
 ConsoleApplication7   C++学习，信号测试
+ConsoleApplication8   二叉树基础算法（包括树的创建、销毁、查找、多种遍历方法等等，还有一些简单的算法问题）
