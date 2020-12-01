@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="program">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="program\main">
+      <UniqueIdentifier>{836271c6-4066-4a5e-a84a-1c042d790bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="program\Listdrive">
+      <UniqueIdentifier>{6e6c4fb7-4f9b-4aff-b524-5abe0c460370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="program\Listdrive\include">
+      <UniqueIdentifier>{5058307c-8d5a-46a0-98a3-b442ea03ef96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="program\Listdrive\source">
+      <UniqueIdentifier>{5e3649eb-6d32-4b63-95fe-3660a6d6407f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>program\main</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlist.cpp">
+      <Filter>program\Listdrive\source</Filter>
+    </ClCompile>
+    <ClCompile Include="linklist.cpp">
+      <Filter>program\Listdrive\source</Filter>
+    </ClCompile>
+    <ClCompile Include="stack.cpp">
+      <Filter>program\Listdrive\source</Filter>
+    </ClCompile>
+    <ClCompile Include="algorithm.cpp">
+      <Filter>program\Listdrive\source</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>program\Listdrive\source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sqlist.h">
+      <Filter>program\Listdrive\include</Filter>
+    </ClInclude>
+    <ClInclude Include="linklist.h">
+      <Filter>program\Listdrive\include</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>program\Listdrive\include</Filter>
+    </ClInclude>
+    <ClInclude Include="algorithm.h">
+      <Filter>program\Listdrive\include</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>program\Listdrive\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

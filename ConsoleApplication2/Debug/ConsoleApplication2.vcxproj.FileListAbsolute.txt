@@ -1,0 +1,2 @@
+E:\C++Code\project\ConsoleApplication2\Debug\ConsoleApplication2.exe
+E:\C++Code\project\ConsoleApplication2\Debug\ConsoleApplication2.pdb
