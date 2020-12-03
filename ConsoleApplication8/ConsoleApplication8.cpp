@@ -10,20 +10,20 @@ typedef struct node {
 }BTNode;
 
 void CreatBTNode(BTNode*& tree,char* str);//括号表示法传递二叉树
-void DestroyBT(BTNode*& tree);
-BTNode* FindNode(BTNode* tree, ElemType x);
-BTNode* LchildNode(BTNode* p);
-BTNode* RchildNode(BTNode* p);
-int BTNodeDepth(BTNode* tree);
-void DispBTNode(BTNode* tree);
+void DestroyBT(BTNode*& tree);//销毁一棵树
+BTNode* FindNode(BTNode* tree, ElemType x);//查找节点x的位置
+BTNode* LchildNode(BTNode* p);//求节点p的左节点
+BTNode* RchildNode(BTNode* p);//求节点p的右节点
+int BTNodeDepth(BTNode* tree);//计算树的深度
+void DispBTNode(BTNode* tree);//以括号表示法打印出树
 
 void PreOrder(BTNode* tree);//先序访问
 void InOrder(BTNode* tree);//中序访问
 void PostOrder(BTNode* tree);//后序遍历
-void LevelOrder(BTNode* tree);
+void LevelOrder(BTNode* tree);//层次遍历
 
 int Nodes(BTNode* tree);//求树的节点个数
-int LeafNodes(BTNode* tree);
+int LeafNodes(BTNode* tree);//求叶子节点数
 void Copy(BTNode* b, BTNode* &t);//把a复制到b
 
 void AllPath(BTNode* b);//从根节点到每个叶子节点的逆路径
@@ -276,7 +276,6 @@ int Level(BTNode* b, ElemType x, int h)//h初始传入的值应该为1
     }
 }
 
-
 void AllPath(BTNode* b)//类似队列求解迷宫问题
 {
     struct snode {
@@ -291,8 +290,11 @@ void AllPath(BTNode* b)//类似队列求解迷宫问题
     qu[rear].parent = -1;
     while (front != rear)
     {
+        //出队一个元素
         front++;
-        q = qu[front].node;//出队一个元素
+        q = qu[front].node;
+
+        //发现叶节点，回溯
         if (q->lchild == NULL && q->rchild == NULL)
         {
             p = front;
@@ -303,6 +305,8 @@ void AllPath(BTNode* b)//类似队列求解迷宫问题
             }
             cout << qu[p].node->data << endl;
         }
+
+        //入队
         if (q->lchild != NULL)
         {
             rear++;
@@ -317,5 +321,8 @@ void AllPath(BTNode* b)//类似队列求解迷宫问题
         }
     }
 }
+
+
+
 
 
